@@ -1,0 +1,1 @@
+Refunds are available within 30 days with a receipt. Escalate exceptions to the support lead.

@@ -1,0 +1,186 @@
+{
+  "checkpoint_id": "ckpt-d7fdeec63683",
+  "label": "before-step-1",
+  "created_at": "2026-10-31T15:36:21.667018Z",
+  "state": {
+    "run_id": "run-411a8095c32f",
+    "goal_id": "demo-policy-summary",
+    "step": 1,
+    "plan_index": 1,
+    "status": "running",
+    "ledger": {
+      "goal": {
+        "goal_id": "demo-policy-summary",
+        "objective": "Read the refund policy and write a concise report",
+        "constraints": [
+          "Never transfer funds",
+          "Use only workspace data"
+        ],
+        "invariants": [
+          {
+            "id": "no-transfers",
+            "kind": "forbidden_tools",
+            "description": "No money movement",
+            "params": {
+              "tools": [
+                "transfer_funds"
+              ]
+            }
+          },
+          {
+            "id": "tool-budget",
+            "kind": "max_tool_calls",
+            "description": "At most five calls",
+            "params": {
+              "limit": 5
+            }
+          }
+        ],
+        "success_criteria": [
+          {
+            "id": "c1",
+            "description": "refund policy report written",
+            "required": true
+          }
+        ],
+        "scope_keywords": [],
+        "original_task": "Summarize the local refund policy with sources."
+      },
+      "completed_criteria": [],
+      "tool_calls": 1,
+      "spend_usd": 0.0,
+      "violations": [],
+      "actions": [
+        {
+          "step": 0,
+          "tool_name": "read_document",
+          "purpose": "read source policy",
+          "risk": "low",
+          "executed": true,
+          "outcome": "Refunds are available within 30 days with a receipt. Escalate exceptions to the support lead."
+        }
+      ],
+      "drift": null
+    },
+    "context": {
+      "goal": {
+        "goal_id": "demo-policy-summary",
+        "objective": "Read the refund policy and write a concise report",
+        "constraints": [
+          "Never transfer funds",
+          "Use only workspace data"
+        ],
+        "invariants": [
+          {
+            "id": "no-transfers",
+            "kind": "forbidden_tools",
+            "description": "No money movement",
+            "params": {
+              "tools": [
+                "transfer_funds"
+              ]
+            }
+          },
+          {
+            "id": "tool-budget",
+            "kind": "max_tool_calls",
+            "description": "At most five calls",
+            "params": {
+              "limit": 5
+            }
+          }
+        ],
+        "success_criteria": [
+          {
+            "id": "c1",
+            "description": "refund policy report written",
+            "required": true
+          }
+        ],
+        "scope_keywords": [],
+        "original_task": "Summarize the local refund policy with sources."
+      },
+      "items": [
+        {
+          "id": "ctx-0001",
+          "content": "PINNED GOAL:\nOBJECTIVE: Read the refund policy and write a concise report\nCONSTRAINTS: Never transfer funds | Use only workspace data\nSUCCESS CRITERIA: c1=refund policy report written",
+          "provenance": {
+            "source_type": "goal",
+            "source_id": "demo-policy-summary",
+            "trust": "system",
+            "uri": null,
+            "retrieved_at": "2026-10-31T15:36:21.662035Z"
+          },
+          "trust": "system",
+          "signals": [],
+          "kind": "goal",
+          "pinned": true,
+          "token_count": 46,
+          "created_at": "2026-10-31T15:36:21.662035Z"
+        },
+        {
+          "id": "ctx-0002",
+          "content": "TASK: Summarize the local refund policy with sources.\nPLAN:\n- s1: Read policy (tools=['read_document'])\n- s2: Write report (tools=['write_report'])",
+          "provenance": {
+            "source_type": "agent",
+            "source_id": "demo-policy-summary",
+            "trust": "trusted",
+            "uri": null,
+            "retrieved_at": "2026-10-31T15:36:21.664029Z"
+          },
+          "trust": "trusted",
+          "signals": [],
+          "kind": "plan",
+          "pinned": false,
+          "token_count": 37,
+          "created_at": "2026-10-31T15:36:21.664029Z"
+        },
+        {
+          "id": "ctx-0003",
+          "content": "Refunds are available within 30 days with a receipt. Escalate exceptions to the support lead.",
+          "provenance": {
+            "source_type": "file",
+            "source_id": "file:refund_policy.md",
+            "trust": "untrusted",
+            "uri": "C:\\Users\\user\\Desktop\\Aegis-Agent\\demo-workspace\\data\\refund_policy.md",
+            "retrieved_at": "2026-10-31T15:36:21.667018Z"
+          },
+          "trust": "untrusted",
+          "signals": [],
+          "kind": "tool_result",
+          "pinned": false,
+          "token_count": 24,
+          "created_at": "2026-10-31T15:36:21.667018Z"
+        }
+      ],
+      "episodes": [],
+      "budget_tokens": 1400,
+      "max_recent": 6,
+      "next_index": 4
+    },
+    "actions": [
+      {
+        "step": 0,
+        "tool_name": "read_document",
+        "arguments": {
+          "path": "refund_policy.md"
+        },
+        "purpose": "read source policy",
+        "reason": "the report must be grounded in the local policy",
+        "risk": "low",
+        "authorized": true,
+        "executed": true,
+        "ok": true,
+        "outcome": "Refunds are available within 30 days with a receipt. Escalate exceptions to the support lead.",
+        "approval": null,
+        "tainted": false,
+        "irreversible": false
+      }
+    ],
+    "tool_calls": 1,
+    "recovery_steps": 0,
+    "stop_reason": null,
+    "final_answer": null
+  },
+  "journal_mark": 0
+}
